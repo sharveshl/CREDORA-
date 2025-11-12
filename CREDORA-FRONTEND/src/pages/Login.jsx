@@ -1,146 +1,127 @@
 import { useState } from "react";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Login:", { email, password });
-  };
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#6a5af9] to-[#8366f4] px-4">
-      {/* Outer mobile-like container */}
-      <div className="w-full max-w-[400px] bg-white rounded-[40px] shadow-2xl overflow-hidden">
-        {/* Top Gradient Header */}
-        <div className="bg-gradient-to-b from-[#6a5af9] to-[#8366f4] pt-12 pb-8 text-center text-white relative">
-          <h1 className="text-4xl font-extrabold tracking-tight">CREDORA</h1>
-          <p className="text-white/80 mt-1 text-sm">Finance Tracker</p>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-indigo-100 to-blue-200 px-4 relative overflow-hidden">
+      {/* Dotted Background Decoration */}
+      <div className="absolute bottom-0 left-0 w-full h-40 bg-[url('https://www.toptal.com/designers/subtlepatterns/patterns/dots.png')] opacity-20"></div>
 
-          {/* Get Started button (top right small) */}
-          <button className="absolute top-6 right-6 text-sm bg-white/20 hover:bg-white/30 px-4 py-1.5 rounded-full border border-white/30 backdrop-blur-md">
-            Get Started
+      {/* Login Card */}
+      <div className="relative z-10 bg-white rounded-[30px] shadow-2xl p-8 w-full max-w-[380px] border border-gray-100">
+        {/* Header */}
+        <h2 className="text-3xl font-bold text-gray-900 text-center mb-2">
+          Log in
+        </h2>
+        <p className="text-center text-gray-500 text-sm mb-8">
+          Log in with one of the following
+        </p>
+
+        {/* Social Buttons */}
+        <div className="flex gap-3 mb-8">
+          <button
+            type="button"
+            className="flex-1 flex items-center justify-center gap-2 py-3 border border-gray-200 rounded-xl hover:bg-gray-50 transition"
+          >
+            <img
+              src="https://www.svgrepo.com/show/475656/google-color.svg"
+              alt="Google"
+              className="w-5 h-5"
+            />
+            <span className="text-sm font-medium text-gray-700">Google</span>
+          </button>
+          <button
+            type="button"
+            className="flex-1 flex items-center justify-center gap-2 py-3 border border-gray-200 rounded-xl hover:bg-gray-50 transition"
+          >
+            <img
+              src="https://www.svgrepo.com/show/494341/facebook.svg"
+              alt="Facebook"
+              className="w-5 h-5"
+            />
+            <span className="text-sm font-medium text-gray-700">Facebook</span>
           </button>
         </div>
 
-        {/* Main Form Section */}
-        <div className="p-8 pt-6">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-1">
-            Welcome Back 👋
-          </h2>
-          <p className="text-gray-500 text-sm mb-8">
-            Enter your credentials to continue
-          </p>
-
-          <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Email */}
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm text-gray-600 mb-2 font-medium"
-              >
-                Email Address
-              </label>
-              <input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                placeholder="you@example.com"
-                className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-indigo-400 focus:outline-none"
-              />
-            </div>
-
-            {/* Password */}
-            <div>
-              <label
-                htmlFor="password"
-                className="block text-sm text-gray-600 mb-2 font-medium"
-              >
-                Password
-              </label>
-              <div className="relative">
-                <input
-                  id="password"
-                  type={showPassword ? "text" : "password"}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  placeholder="••••••••"
-                  className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-indigo-400 focus:outline-none pr-10"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword((s) => !s)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700"
-                >
-                  {showPassword ? "🙈" : "👁️"}
-                </button>
-              </div>
-            </div>
-
-            {/* Forgot Password */}
-            <div className="flex justify-end">
-              <a
-                href="#"
-                className="text-sm text-indigo-500 font-medium hover:underline"
-              >
-                Forgot password?
-              </a>
-            </div>
-
-            {/* Sign In Button */}
-            <button
-              type="submit"
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold text-lg shadow-md hover:shadow-lg transition-all"
-            >
-              Sign In
-            </button>
-          </form>
-
-          {/* Divider */}
-          <div className="flex items-center my-8">
-            <div className="flex-1 h-px bg-gray-200" />
-            <p className="px-4 text-gray-400 text-sm">or sign in with</p>
-            <div className="flex-1 h-px bg-gray-200" />
-          </div>
-
-          {/* Social Login */}
-          <div className="flex gap-3">
-            <button className="flex-1 py-3 border border-gray-200 rounded-xl flex items-center justify-center gap-2 text-gray-700 hover:bg-gray-50 transition">
-              <img
-                src="https://www.svgrepo.com/show/475656/google-color.svg"
-                alt="Google"
-                className="w-5 h-5"
-              />
-              Google
-            </button>
-            <button className="flex-1 py-3 border border-gray-200 rounded-xl flex items-center justify-center gap-2 text-gray-700 hover:bg-gray-50 transition">
-              <img
-                src="https://www.svgrepo.com/show/448234/facebook.svg"
-                alt="Facebook"
-                className="w-5 h-5"
-              />
-              Facebook
-            </button>
-          </div>
-
-          {/* Sign Up Link */}
-          <p className="text-center text-gray-500 text-sm mt-10">
-            Don’t have an account?{" "}
-            <a
-              href="#"
-              className="text-indigo-500 font-semibold hover:underline"
-            >
-              Sign up
-            </a>
-          </p>
+        {/* Divider */}
+        <div className="flex items-center mb-6">
+          <div className="flex-1 h-px bg-gray-200" />
+          <span className="px-3 text-gray-400 text-sm">or</span>
+          <div className="flex-1 h-px bg-gray-200" />
         </div>
+
+        {/* Login Form */}
+        <form className="space-y-5">
+          {/* Email */}
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
+              Email*
+            </label>
+            <input
+              id="email"
+              type="email"
+              placeholder="example@gmail.com"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-700 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+            />
+          </div>
+
+          {/* Password */}
+          <div>
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
+              Password*
+            </label>
+            <div className="relative">
+              <input
+                id="password"
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-700 focus:ring-2 focus:ring-blue-400 focus:outline-none pr-10"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              >
+                {showPassword ? "🙈" : "👁️"}
+              </button>
+            </div>
+          </div>
+
+          {/* Remember & Forgot */}
+          <div className="flex items-center justify-between text-sm text-gray-600">
+            <label className="flex items-center gap-2">
+              <input type="checkbox" className="accent-blue-500 w-4 h-4" />
+              <span>Remember info</span>
+            </label>
+            <a href="#" className="text-blue-500 font-medium hover:underline">
+              Forgot Password?
+            </a>
+          </div>
+
+          {/* Submit Button */}
+          <button
+            type="button"
+            className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition-all"
+          >
+            Log In
+          </button>
+        </form>
+
+        {/* Sign Up */}
+        <p className="text-center text-gray-500 text-sm mt-8">
+          First time here?{" "}
+          <a href="#" className="text-blue-600 font-semibold hover:underline">
+            Sign up for free
+          </a>
+        </p>
       </div>
     </div>
   );
 }
-  
