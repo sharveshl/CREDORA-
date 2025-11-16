@@ -117,7 +117,7 @@ export default function Login() {
         {/* Sign Up */}
         <p className="text-center text-gray-500 text-sm mt-8">
           First time here?{" "}
-          <a href="#" className="text-blue-600 font-semibold hover:underline">
+          <a href="/signup" className="text-blue-600 font-semibold hover:underline">
             Sign up for free
           </a>
         </p>
