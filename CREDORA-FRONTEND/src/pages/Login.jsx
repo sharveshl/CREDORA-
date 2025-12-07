@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 
 export default function Login() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -117,9 +119,12 @@ export default function Login() {
         {/* Sign Up */}
         <p className="text-center text-gray-500 text-sm mt-8">
           First time here?{" "}
-          <a href="#" className="text-blue-600 font-semibold hover:underline">
-            Sign up for free
-          </a>
+          <button
+            onClick={() => navigate("/signup")}
+            className="text-[#2a3fc7] font-semibold hover:underline"
+          >
+            Sign up
+          </button>
         </p>
       </div>
     </div>
