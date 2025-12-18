@@ -4,6 +4,21 @@ import { useNavigate } from "react-router-dom";
 export default function Login() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleLogin = () => {
+    const demoEmail = "loganathansharvesh14@gmail.com";
+    const demoPassword = "sharvesh";
+
+    if (email === demoEmail && password === demoPassword) {
+      setError("");
+      navigate("/dashboard");
+    } else {
+      setError("Invalid email or password. Use the demo credentials shown below.");
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-indigo-100 to-blue-200 px-4 relative overflow-hidden">
@@ -67,6 +82,8 @@ export default function Login() {
               id="email"
               type="email"
               placeholder="example@gmail.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-700 focus:ring-2 focus:ring-blue-400 focus:outline-none"
             />
           </div>
@@ -84,6 +101,8 @@ export default function Login() {
                 id="password"
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-700 focus:ring-2 focus:ring-blue-400 focus:outline-none pr-10"
               />
               <button
@@ -107,10 +126,25 @@ export default function Login() {
             </a>
           </div>
 
+          {/* Error */}
+          {error && (
+            <p className="text-red-500 text-xs text-center -mt-2">
+              {error}
+            </p>
+          )}
+
+          {/* Demo Credentials */}
+          <div className="mt-2 text-[11px] text-gray-500 bg-gray-50 border border-dashed border-gray-200 rounded-xl p-3">
+            <p className="font-semibold text-gray-700 mb-1">Demo credentials</p>
+            <p>Email: <span className="font-mono text-xs">loganathansharvesh14@gmail.com</span></p>
+            <p>Password: <span className="font-mono text-xs">sharvesh</span></p>
+          </div>
+
           {/* Submit Button */}
           <button
             type="button"
-            className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition-all"
+            onClick={handleLogin}
+            className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold py-3 rounded-xl hover:opacity-90 transition-all mt-4"
           >
             Log In
           </button>

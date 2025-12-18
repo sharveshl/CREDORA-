@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Home, PieChart, History, User, Mic, Camera } from "lucide-react";
 
 export default function Profile() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("Sharvesh");
   const [profileImage, setProfileImage] = useState(null);
 
@@ -155,12 +157,18 @@ export default function Profile() {
 
       {/* Bottom Navigation Bar */}
       <div className="fixed bottom-0 left-0 w-full bg-white rounded-t-3xl shadow-2xl border-t border-gray-200 py-3 px-8 flex justify-between items-center z-10">
-        <button className="flex flex-col items-center text-gray-500 active:scale-90">
+        <button
+          className="flex flex-col items-center text-gray-500 active:scale-90"
+          onClick={() => navigate("/dashboard")}
+        >
           <Home size={22} />
           <span className="text-xs">Home</span>
         </button>
 
-        <button className="flex flex-col items-center text-gray-500 active:scale-90">
+        <button
+          className="flex flex-col items-center text-gray-500 active:scale-90"
+          onClick={() => navigate("/history")}
+        >
           <History size={22} />
           <span className="text-xs">History</span>
         </button>
@@ -168,7 +176,10 @@ export default function Profile() {
         {/* Spacer for mic */}
         <div className="w-16" />
 
-        <button className="flex flex-col items-center text-gray-500 active:scale-90">
+        <button
+          className="flex flex-col items-center text-gray-500 active:scale-90"
+          onClick={() => navigate("/stats")}
+        >
           <PieChart size={22} />
           <span className="text-xs">Stats</span>
         </button>
