@@ -14,10 +14,10 @@ function App() {
         <Route path="/" element={<Welcome />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/history" element={<HistoryPage />} />
-        <Route path="/stats" element={<StatsPage />} />
-        <Route path="/profile" element={<Profile />} />
+        {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+        {/* <Route path="/history" element={<HistoryPage />} /> */}
+        {/* <Route path="/stats" element={<StatsPage />} /> */}
+        {/* <Route path="/profile" element={<Profile />} /> */}
       </Routes>
     </Router>
   )
