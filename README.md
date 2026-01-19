@@ -69,15 +69,4 @@ Prerequisites
 
 Node.js (v16+ recommended)
 
-npm or yarn
-
-Steps
-git clone https://github.com/your-username/credora.git
-cd credora
-npm install
-npm start
-
-
-The app will run at:
-
-http://localhost:3000
+npm
